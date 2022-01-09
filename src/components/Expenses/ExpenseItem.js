@@ -1,10 +1,15 @@
+import { useState } from 'react';
+
 import ExpenseDate from './ExpenseDate';
 import Card from '../UI/Card';
 
 import './ExpenseItem.css';
 
 function ExpenseItem(props) {
-  const { title, amount, date } = props;
+  // eslint-disable-next-line react/destructuring-assignment
+  const [title, setTitle] = useState(props.title);
+
+  const { amount, date } = props;
 
   return (
     <Card className="expense-item">
