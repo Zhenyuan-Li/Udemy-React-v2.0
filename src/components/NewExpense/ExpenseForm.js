@@ -4,7 +4,7 @@ import { useState } from 'react';
 import './ExpenseForm.css';
 
 function ExpenseForm(props) {
-  const { onSaveExpenseData } = props;
+  const { onSaveExpenseData, onCancelExpenseData } = props;
 
   const [enteredTitle, setEnteredTitle] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
@@ -39,7 +39,7 @@ function ExpenseForm(props) {
     const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
-      date: enteredDate,
+      date: new Date(enteredDate),
     };
     onSaveExpenseData(expenseData);
 
@@ -66,7 +66,7 @@ function ExpenseForm(props) {
             type="number"
             value={enteredAmount}
             min="0.01"
-            max="1000"
+            step="0.01"
             onChange={amountChangeHandler}
           />
         </div>
@@ -82,6 +82,9 @@ function ExpenseForm(props) {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={onCancelExpenseData}>
+          Cancel
+        </button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
