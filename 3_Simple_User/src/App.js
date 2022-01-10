@@ -15,11 +15,12 @@ function App() {
     });
   };
 
+  // Or <React.Fragment>; Or import from React, and <Fragment>
   return (
-    <div>
+    <>
       <AddUser onAddUser={addUserHandler} />
       <UsersList users={usersList} />
-    </div>
+    </>
   );
 }
 
