@@ -11,13 +11,12 @@ const AddUser = (props) => {
   // Use only for read value. Leave the manipulating staff to React
   const nameInputRef = useRef();
   const ageInputRef = useRef();
-  // We don't need the state to get access to user input (state-based solution)
-  const enteredName = nameInputRef.current.value;
-  const enteredUserAge = ageInputRef.current.value;
-
   const [error, setError] = useState();
 
   const addUserHandler = (event) => {
+    // We don't need the state to get access to user input (state-based solution)
+    const enteredName = nameInputRef.current.value;
+    const enteredUserAge = ageInputRef.current.value;
     event.preventDefault();
     if (enteredName.trim().length === 0 || enteredUserAge.trim().length === 0) {
       setError({
@@ -33,7 +32,7 @@ const AddUser = (props) => {
       });
       return;
     }
-    props.onAddUser(enteredUserAge, enteredUserAge);
+    props.onAddUser(enteredName, enteredUserAge);
     // Important: Rarely do that !
     // Do not use ref to manipulate the DOM
     nameInputRef.current.value = '';
