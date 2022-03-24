@@ -31,8 +31,8 @@ const Navigation = () => {
 export default Navigation;
 
 // Method 1: wrap with consumer.
-{
-  /* <AuthContext.Consumer>
+// {
+/* <AuthContext.Consumer>
 {(ctx) => {
   return (
     <nav className={classes.nav}>
@@ -42,4 +42,4 @@ export default Navigation;
   );
 }}
 </AuthContext.Consumer> */
-}
+// }
